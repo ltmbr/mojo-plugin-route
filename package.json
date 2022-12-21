@@ -1,6 +1,6 @@
 {
   "name": "mojo-plugin-route",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Plugin to loader files of routes to mojo.js",
   "keywords": [
     "mojojs",
@@ -9,6 +9,7 @@
   "type": "module",
   "author": "Lucas Tiago de Moraes <lucastiagodemoraes@gmail.com>",
   "exports": "./lib/route.js",
+  "types": "./lib/route.d.ts",
   "files": [
     "lib/"
   ],
