@@ -14,7 +14,9 @@ app.plugin(routePlugin);
 app.start();
 ```
 
-route/app.js
+JavaScript:
+
+route/foo.js
 
 ```js
 export function under(app) {
@@ -28,6 +30,30 @@ export function under(app) {
 }
 
 export function route(app, foo) {
+  foo.get('/bar', async ctx => {
+    await ctx.render({text: 'Foo Bar'});
+  }); 
+}
+```
+
+TypeScript:
+
+route/foo.ts
+
+```js
+import type {MojoApp, MojoRoute} from '@mojojs/core';
+
+export function under(app: MojoApp) {
+  const foo = app.under('/foo');
+
+  foo.get('/', async ctx => {
+    await ctx.render({text: 'Foo'});
+  });
+
+  return foo;
+}
+
+export function route(app: MojoApp, foo: MojoRoute) {
   foo.get('/bar', async ctx => {
     await ctx.render({text: 'Foo Bar'});
   }); 
