@@ -16,7 +16,7 @@ app.start();
 
 JavaScript:
 
-route/foo.js
+lib/route/foo.js
 
 ```js
 export function under(app) {
@@ -38,7 +38,7 @@ export function route(app, foo) {
 
 TypeScript:
 
-route/foo.ts
+src/route/foo.ts
 
 ```js
 import type {MojoApp, MojoRoute} from '@mojojs/core';
