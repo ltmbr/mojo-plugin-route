@@ -33,3 +33,21 @@ export function route(app, foo) {
   }); 
 }
 ```
+
+# Install
+
+```
+npm install mojo-plugin-route
+```
+
+## Author
+
+Lucas Tiago de Moraes
+
+## Copyright
+
+(c) Lucas Tiago de Moraes 2022
+
+## License
+
+MIT
