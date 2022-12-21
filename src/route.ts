@@ -13,7 +13,7 @@ class Route {
     this.routes = {};
 
     const namespace = options.namespace ?? 'route';
-    const pathRoutes = app.home + '/' + namespace; 
+    const pathRoutes = app.home + '/lib/' + namespace; 
     
     if (!existsSync(pathRoutes)) 
       throw Error(`Routes path (${pathRoutes}) does not exist!`); 
