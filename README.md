@@ -19,8 +19,8 @@ JavaScript:
 route/foo.js
 
 ```js
-export function under(app) {
-  const foo = app.under('/foo');
+export function under(r) {
+  const foo = r.under('/foo');
 
   foo.get('/', async ctx => {
     await ctx.render({text: 'Foo'});
@@ -29,7 +29,7 @@ export function under(app) {
   return foo;
 }
 
-export function route(app, foo) {
+export function route(r, foo) {
   foo.get('/bar', async ctx => {
     await ctx.render({text: 'Foo Bar'});
   }); 
@@ -41,10 +41,10 @@ TypeScript:
 src/route/foo.ts
 
 ```js
-import type {MojoApp, MojoRoute} from '@mojojs/core';
+import type {MojoRoute} from '@mojojs/core';
 
-export function under(app: MojoApp) {
-  const foo = app.under('/foo');
+export function under(r: MojoApp) {
+  const foo = r.under('/foo');
 
   foo.get('/', async ctx => {
     await ctx.render({text: 'Foo'});
@@ -53,7 +53,7 @@ export function under(app: MojoApp) {
   return foo;
 }
 
-export function route(app: MojoApp, foo: MojoRoute) {
+export function route(r: MojoRoute, foo: MojoRoute) {
   foo.get('/bar', async ctx => {
     await ctx.render({text: 'Foo Bar'});
   }); 
