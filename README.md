@@ -16,7 +16,7 @@ app.start();
 
 JavaScript:
 
-lib/route/foo.js
+route/foo.js
 
 ```js
 export function under(app) {

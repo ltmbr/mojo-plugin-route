@@ -13,10 +13,20 @@ class Route {
     this.routes = {};
 
     const namespace = options.namespace ?? 'route';
-    const pathRoutes = app.home + '/lib/' + namespace; 
+
+    const tsPathRoutes = app.home + '/lib/' + namespace; 
+    const jsPathRoutes = app.home + '/' + namespace;
+
+    let pathRoutes = '';
+    
+    if (existsSync(tsPathRoutes))
+      pathRoutes = tsPathRoutes;
+
+    if (existsSync(jsPathRoutes))
+      pathRoutes = jsPathRoutes;      
     
     if (!existsSync(pathRoutes)) 
-      throw Error(`Routes path (${pathRoutes}) does not exist!`); 
+      throw Error(`Routes path ${pathRoutes} does not exist!`); 
       
     this.files(app, namespace, pathRoutes);
   }
@@ -34,7 +44,7 @@ class Route {
   private async loadFile(app: MojoApp, namespace: string, file: string) {
     const imports = await import(file.toString());
 
-    const re = new RegExp(`/${namespace}/([^\.]+)\.(?:ts|js|mjs)$`);
+    const re = new RegExp(`/${namespace}/([^\.]+)\.js$`);
     const match = file.match(re);
     const name = match ? match[1] : '';
 
