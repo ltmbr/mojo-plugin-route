@@ -66,6 +66,10 @@ export function route(r: MojoRoute, foo: MojoRoute) {
 npm install mojo-plugin-route
 ```
 
+## Version
+
+2.0.1
+
 ## Attribute
 
 ### app
@@ -121,6 +125,48 @@ export function route(r) {
 ```
 
 route method can receive reference from namespace, any or under, under is defaulting about any.
+
+## Examples
+
+route/admin.js
+
+```js
+export function under(r) {
+  return r.under('/admin'); 
+}
+```
+
+route/admin/users.js
+
+```js
+export function any(r, admin) {
+  return admin.any('/users');
+}
+
+export function route(r, admin, users) {
+  users.get('/').to({controller: 'users', action: 'index'});            // route: /admin/users
+  users.get('/view/:id').to({controller: 'users', action: 'view'});     // route: /admin/users/view/123
+  users.get('/add').to({controller: 'users', action: 'add'});           // route: /admin/users/add
+  users.get('/edit/:id').to({controller: 'users', action: 'edit'});     // route: /admin/users/edit/123
+  users.get('/delete/:id').to({controller: 'users', action: 'delete'}); // route: /admin/users/delete/123
+}
+```
+
+route/admin/articles.js
+
+```js
+export function any(r, admin) {
+  return admin.any('/articles');
+}
+
+export function route(r, admin, articles) {
+  articles.get('/').to({controller: 'articles', action: 'index'});            // route: /admin/articles
+  articles.get('/view/:id').to({controller: 'articles', action: 'view'});     // route: /admin/articles/view/123
+  articles.get('/add').to({controller: 'articles', action: 'add'});           // route: /admin/articles/add
+  articles.get('/edit/:id').to({controller: 'articles', action: 'edit'});     // route: /admin/articles/edit/123
+  articles.get('/delete/:id').to({controller: 'articles', action: 'delete'}); // route: /admin/articles/delete/123
+}
+```
 
 ## Author
 

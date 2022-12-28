@@ -2,6 +2,16 @@
 
 This package strictly follows [Semantic Versioning](https://semver.org).
 
+## v2.0.1 (2022-12-28)
+
+  * Added examples in the documentation.
+
+## v2.0.0 (2022-12-27)
+
+  * Added method any.
+  * Added method to work namespace.
+  * Added attribute app to methods receive app as first parameter.
+
 ## v1.0.2 (2022-12-26)
 
 ### Bug Fixes
